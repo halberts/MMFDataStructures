@@ -59,9 +59,9 @@ namespace MMDataStructures.DictionaryBacking {
             if (string.IsNullOrEmpty(name)) { name = Guid.NewGuid().ToString(); }
             _path = Config.DataPath;
             if (!Directory.Exists(_path)) { Directory.CreateDirectory(_path); }
-            _hashFile = Path.Combine(_path, name + ".hash");
-            _keyFile = Path.Combine(_path, name + ".key");
-            _valueFile = Path.Combine(_path, name + ".value");
+            _hashFile = Path.Combine(_path, name + ".mhash");
+            _keyFile = Path.Combine(_path, name + ".mkey");
+            _valueFile = Path.Combine(_path, name + ".mvalue");
         }
 
 

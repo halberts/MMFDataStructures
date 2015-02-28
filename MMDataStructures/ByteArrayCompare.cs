@@ -2,7 +2,7 @@
 
 namespace MMDataStructures
 {
-    internal static class ByteArrayCompare
+    public static class ByteArrayCompare
     {
         /// <summary>
         /// Compare the values of two byte arrays
