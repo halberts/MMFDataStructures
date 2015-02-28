@@ -23,6 +23,4 @@ accessing them exits) or if you are on Mono and need quick and simple solution. 
   <div class="span1"></div>
 </div>
 
-
-
 [Licensed as Apache 2.0.](https://github.com/buybackoff/MMDataStructures/blob/master/LICENSE.md)
