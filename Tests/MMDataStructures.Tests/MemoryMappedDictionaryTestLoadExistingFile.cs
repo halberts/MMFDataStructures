@@ -60,14 +60,14 @@ namespace MMDataStructures.Test
         [Test]
         public void When_adding_more_items_to_an_existing_file_validate_the_content()
         {
-            var dict = new Dictionary<int, int>(_path, 20, true, "test1");
+            var dict = new MMFDictionary<int, int>("test1", 20, PersistenceMode.TemporaryPersist);
             dict[0] = 0;
             dict[1] = 1;
             dict = null;
             GC.WaitForPendingFinalizers();
             GC.Collect();
             Thread.Sleep(4000);
-            dict = new Dictionary<int, int>(_path, 20, false, "test1");
+            dict = new MMFDictionary<int, int>("test1", 20, PersistenceMode.TemporaryPersist);
             Assert.AreEqual(2, dict.Count);
             Assert.AreEqual(0, dict[0]);
             Assert.AreEqual(1, dict[1]);
@@ -81,7 +81,7 @@ namespace MMDataStructures.Test
         [Test]
         public void When_adding_more_items_to_an_existing_file_validate_the_content2()
         {
-            var dict = new Dictionary<string, int>(_path, 20, true, "test1");
+            var dict = new MMFDictionary<string, int>("test1", 20, PersistenceMode.TemporaryPersist);
             dict["new0"] = 0;
             dict["new1"] = 1;
 
@@ -92,7 +92,7 @@ namespace MMDataStructures.Test
             }
 
             dict.Dispose();
-            dict = new Dictionary<string, int>(_path, 20, true, "test1");
+            dict = new MMFDictionary<string, int>("test1", 20, PersistenceMode.TemporaryPersist);
             Assert.AreEqual(2, dict.Count);
             Assert.AreEqual(0, dict["new0"]);
             Assert.AreEqual(1, dict["new1"]);
@@ -110,7 +110,7 @@ namespace MMDataStructures.Test
             Assert.AreEqual(2, dict["test0"]);
 
             dict.Dispose();
-            dict = new Dictionary<string, int>(_path, 20, true, "test1");
+            dict = new MMFDictionary<string, int>("test1", 20, PersistenceMode.TemporaryPersist);
             Assert.AreEqual(3, dict.Count);
             Assert.AreEqual(0, dict["new0"]);
             Assert.AreEqual(1, dict["new1"]);
@@ -120,7 +120,7 @@ namespace MMDataStructures.Test
         [Test]
         public void When_adding_more_items_to_an_existing_file_validate_the_content3()
         {
-            using (var dict = new Dictionary<string, int>(_path, 20, true, "test1"))
+            using (var dict = new MMFDictionary<string, int>("test1", 20, PersistenceMode.TemporaryPersist))
             {
                 dict["new0"] = 0;
                 dict["new1"] = 1;
@@ -131,7 +131,7 @@ namespace MMDataStructures.Test
                         Assert.Fail("Error in reading keys");
                 }
             }
-            using (var dict = new Dictionary<string, int>(_path, 20, true, "test1"))
+            using (var dict = new MMFDictionary<string, int>("test1", 20, PersistenceMode.TemporaryPersist))
             {
                 Assert.AreEqual(2, dict.Count);
                 Assert.AreEqual(0, dict["new0"]);
@@ -150,7 +150,7 @@ namespace MMDataStructures.Test
                 Assert.AreEqual(2, dict["test0"]);
             }
 
-            using (var dict = new Dictionary<string, int>(_path, 20, true, "test1"))
+            using (var dict = new MMFDictionary<string, int>("test1", 20, PersistenceMode.TemporaryPersist))
             {
                 Assert.AreEqual(3, dict.Count);
                 Assert.AreEqual(0, dict["new0"]);
@@ -163,7 +163,7 @@ namespace MMDataStructures.Test
         {
             try
             {
-                var dict = new Dictionary<int, int>(_path, 20, true, "test1");
+                var dict = new MMFDictionary<int, int>("test1", 20, PersistenceMode.TemporaryPersist);
                 dict[0] = 0;
                 dict[1] = 1;
                 Assert.AreEqual(2, dict.Count);
@@ -183,7 +183,7 @@ namespace MMDataStructures.Test
         {
             try
             {
-                var dict = new Dictionary<int, int>(_path, 20, true, "test1");
+                var dict = new MMFDictionary<int, int>("test1", 20, PersistenceMode.TemporaryPersist);
                 Assert.AreEqual(2, dict.Count);
                 Assert.AreEqual(0, dict[0]);
                 Assert.AreEqual(1, dict[1]);

@@ -13,15 +13,15 @@ namespace MMDataStructures.Test
     [TestFixture]
     public class MemoryMappedDictionaryEqualHashTest
     {
-        private static MMDataStructures.Dictionary<Customer, int> _dict;
-        private static MMDataStructures.Dictionary<Customer, Customer> _dict2;
+        private static MMDataStructures.MMFDictionary<Customer, int> _dict;
+        private static MMDataStructures.MMFDictionary<Customer, Customer> _dict2;
 
         [SetUp()]
         public void InitializeDictionary()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            _dict = new MMDataStructures.Dictionary<Customer, int>(path);
-            _dict2 = new MMDataStructures.Dictionary<Customer, Customer>(path);
+            _dict = new MMDataStructures.MMFDictionary<Customer, int>(path,1000);
+            _dict2 = new MMDataStructures.MMFDictionary<Customer, Customer>(path,1000);
         }
 
         [TearDown]

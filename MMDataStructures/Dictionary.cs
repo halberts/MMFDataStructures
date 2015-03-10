@@ -12,12 +12,12 @@ namespace MMDataStructures
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="TValue"></typeparam>
-    public class Dictionary<TKey, TValue> : IDictionary<TKey, TValue>, IDisposable
+    public class MMFDictionary<TKey, TValue> : IDictionary<TKey, TValue>, IDisposable
     {
         private BackingUnknownSize<TKey, TValue> _persistHandler;
         private Mutex Mutex { get { return _persistHandler.Mutex; } }
 
-        private Dictionary(BackingUnknownSize<TKey, TValue> persistHandler)
+        private MMFDictionary(BackingUnknownSize<TKey, TValue> persistHandler)
         {
             _persistHandler = persistHandler;
         }
@@ -29,7 +29,7 @@ namespace MMDataStructures
         /// <param name="fileName">Folder to store files in</param>
         /// <param name="capacity">Number of buckets for the hash</param>
         /// <param name="persistenceMode"></param>
-        public Dictionary(string fileName, int capacity, PersistenceMode persistenceMode = PersistenceMode.TemporaryPersist)
+        public MMFDictionary(string fileName, int capacity, PersistenceMode persistenceMode = PersistenceMode.TemporaryPersist)
             : this(new BackingUnknownSize<TKey, TValue>(fileName, capacity, persistenceMode))
         {
         }
@@ -357,7 +357,7 @@ namespace MMDataStructures
 
 
 
-        ~Dictionary() {
+        ~MMFDictionary() {
             Dispose();
         }
 

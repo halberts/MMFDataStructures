@@ -39,7 +39,7 @@ namespace MMDataStructures.Test
     {
         
 
-        private static MMDataStructures.Dictionary<int, TestFixture> _dict;
+        private static MMDataStructures.MMFDictionary<int, TestFixture> _dict;
 
        
         public static void InitializeDictionary()
@@ -47,7 +47,7 @@ namespace MMDataStructures.Test
             if (_dict == null)
             {
                 string path = AppDomain.CurrentDomain.BaseDirectory;
-                _dict = new MMDataStructures.Dictionary<int, TestFixture>(path);
+                _dict = new MMDataStructures.MMFDictionary<int, TestFixture>(path,1000);
             }
         }
 

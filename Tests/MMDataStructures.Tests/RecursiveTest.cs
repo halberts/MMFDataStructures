@@ -27,13 +27,13 @@ namespace MMDataStructures.Test
         public void Accessing_collection_while_iterating_should_not_thow_exception()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
-            Dictionary<string, CSandboxFileInfo> dictSandboxFileInfo = new Dictionary<string, CSandboxFileInfo>(path,
+            MMFDictionary<string, CSandboxFileInfo> dictSandboxFileInfo = new MMFDictionary<string, CSandboxFileInfo>(path,
                                                                                                                 1000);
             CSandboxFileInfo c = new CSandboxFileInfo {La = "lalalalala", Lu = "lululululu"};
             dictSandboxFileInfo.Add("somekey", c);
 
 
-            Dictionary<string, string> keyDict = new Dictionary<string, string>(path, 1000);
+            MMFDictionary<string, string> keyDict = new MMFDictionary<string, string>(path, 1000);
             KeyValuePair<string, string> kvp = new KeyValuePair<string, string>("somekey", "bbbb");
             keyDict.Add(kvp);
 

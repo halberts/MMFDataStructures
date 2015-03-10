@@ -12,14 +12,14 @@ namespace MMDataStructures.Test
     {
         
 
-        private static Dictionary<int, int> _dict;
+        private static MMFDictionary<int, int> _dict;
 
         public static void InitializeDictionary()
         {
             if (_dict == null)
             {
                 string path = AppDomain.CurrentDomain.BaseDirectory;
-                _dict = new Dictionary<int, int>(path);
+                _dict = new MMFDictionary<int, int>(path,1000);
             }
         }
 

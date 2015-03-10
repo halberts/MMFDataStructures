@@ -28,11 +28,19 @@ namespace MMDataStructures {
             if (typeof(T).IsValueType) {
                 return StructToBytes(value);
             } else {
+                using (MemoryStream byteStream = new MemoryStream())
+                {
+                    //_formatter.Serialize(byteStream, value);
+                    ProtoBuf.Serializer.Serialize<T>(byteStream, value);
+                    byteStream.Position = 0;
+                    return byteStream.ToArray();
+                }
+                /*
                 MemoryStream byteStream = new MemoryStream();
                 _formatter.Serialize(byteStream, value);
                 byteStream.Position = 0;
                 return byteStream.ToArray();
-
+                */
                 //if (!typeof(T).IsValueType && EqualityComparer<T>.Default.Equals(value, default(T)))
                 //{
                 //    return null;
@@ -50,8 +58,11 @@ namespace MMDataStructures {
             if (typeof(T).IsValueType) {
                 return BytesToStruct<T>(bytes);
             } else {
-                MemoryStream byteStream = new MemoryStream(bytes);
-                return (T)_formatter.UnsafeDeserialize(byteStream, null);
+                using (MemoryStream byteStream = new MemoryStream(bytes))
+                {
+                    return ProtoBuf.Serializer.Deserialize<T>(byteStream);
+                    //return (T)_formatter.UnsafeDeserialize(byteStream, null);
+                }
 
                 //if (bytes == null) return default(T);
                 //var json = Encoding.UTF8.GetString(bytes);

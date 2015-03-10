@@ -2,13 +2,16 @@
 using System.Threading;
 using NUnit.Framework;
 
+
 namespace MMDataStructures.Test
 {
     [TestFixture]
     public class ThreadingTest
     {
+      
         #region test1
 
+        /*
         [Test]
         public void Array_thread_test()
         {
@@ -240,7 +243,7 @@ namespace MMDataStructures.Test
                 throw;
             }
         }
-
+        */
         #endregion
     }
 }

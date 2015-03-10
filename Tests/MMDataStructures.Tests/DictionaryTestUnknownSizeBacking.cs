@@ -38,7 +38,7 @@ namespace MMDataStructures.Test
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
             BackingUnknownSize<string, string> backingFile = new BackingUnknownSize<string, string>(path, 2000000);
-            Dictionary<string, string> dict = new Dictionary<string, string>(backingFile);
+            MMFDictionary<string, string> dict = new MMFDictionary<string, string>(path, 10000);
 
             string prevKey = null;
             string prevVal = null;
@@ -63,7 +63,7 @@ namespace MMDataStructures.Test
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
             BackingUnknownSize<Customer, string> backingFile = new BackingUnknownSize<Customer, string>(path, 100);
-            Dictionary<Customer, string> dict = new Dictionary<Customer, string>(backingFile);
+            MMFDictionary<Customer, string> dict = new MMFDictionary<Customer, string>(path,1000);
 
             Customer c1 = new Customer {Name = "Mikael"};
             Customer c2 = new Customer {Name = "Svenson"};
@@ -81,7 +81,7 @@ namespace MMDataStructures.Test
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
             BackingUnknownSize<Customer, string> backingFile = new BackingUnknownSize<Customer, string>(path, 100);
-            Dictionary<Customer, string> dict = new Dictionary<Customer, string>(backingFile);
+            MMFDictionary<Customer, string> dict = new MMFDictionary<Customer, string>(path, 1000);
 
             Customer c1 = new Customer {Name = "Mikael"};
             Customer c2 = new Customer {Name = "Svenson"};
@@ -108,7 +108,7 @@ namespace MMDataStructures.Test
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
             BackingUnknownSize<Customer, string> backingFile = new BackingUnknownSize<Customer, string>(path, 100);
-            Dictionary<Customer, string> dict = new Dictionary<Customer, string>(backingFile);
+            MMFDictionary<Customer, string> dict = new MMFDictionary<Customer, string>(path, 1000);
 
             Customer c1 = new Customer {Name = "Mikael"};
             Customer c2 = new Customer {Name = "Svenson"};
@@ -140,7 +140,7 @@ namespace MMDataStructures.Test
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
             BackingUnknownSize<Customer, string> backingFile = new BackingUnknownSize<Customer, string>(path, 100);
-            Dictionary<Customer, string> dict = new Dictionary<Customer, string>(backingFile);
+            MMFDictionary<Customer, string> dict = new MMFDictionary<Customer, string>(path, 1000);
 
             Customer c1 = new Customer {Name = "Mikael"};
             Customer c2 = new Customer {Name = "Svenson"};
@@ -164,7 +164,7 @@ namespace MMDataStructures.Test
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
             BackingUnknownSize<int, int> backingFile = new BackingUnknownSize<int, int>(path, 100);
-            Dictionary<int, int> dict = new Dictionary<int, int>(backingFile);
+            MMFDictionary<int, int> dict = new MMFDictionary<int, int>(path, 1000, PersistenceMode.TemporaryPersist);
 
             dict.Add(1, 1);
             dict.Add(2, 2);

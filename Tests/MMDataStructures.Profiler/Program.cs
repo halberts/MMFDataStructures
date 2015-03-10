@@ -63,7 +63,7 @@ namespace BenchmarkConsoleApp
         private static void Threaded_HashOnDisk()
         {
             Console.WriteLine("Threaded_HashOnDisk");
-            var dict = new Dictionary<string, string>("Threaded_HashOnDisk", MaxCount);
+            var dict = new MMFDictionary<string, string>("Threaded_HashOnDisk", MaxCount);
 
             Console.WriteLine("Queuing {0} items to Thread Pool", MaxCount);
             Console.WriteLine("Queue to Thread Pool 0");
@@ -94,7 +94,7 @@ namespace BenchmarkConsoleApp
         private static void Threaded_HashCompositeOnDisk()
         {
             Console.WriteLine("Threaded_HashOnDisk");
-            var dict = new Dictionary<string, Person>("Threaded_HashCompositeOnDisk", 100000);
+            var dict = new MMFDictionary<string, Person>("Threaded_HashCompositeOnDisk", 100000);
 
             Console.WriteLine("Queuing {0} items to Thread Pool", MaxCount);
             Console.WriteLine("Queue to Thread Pool 0");
@@ -162,7 +162,7 @@ namespace BenchmarkConsoleApp
         {
             Console.WriteLine("SingelThread_HashOnDisk");
             //var dict = new Dictionary<string, string>("SingelThread_HashOnDisk", MaxCount);
-            var dict = new Dictionary<long, long>("SingelThread_HashOnDisk", MaxCount, PersistenceMode.Persist);
+            var dict = new MMFDictionary<long, long>("SingelThread_HashOnDisk", MaxCount, PersistenceMode.Persist);
 
             Stopwatch sw = Stopwatch.StartNew();
             for (long i = 0; i < MaxCount; i++)
@@ -180,7 +180,7 @@ namespace BenchmarkConsoleApp
         private static void SingelThread_HashCompositeOnDisk()
         {
             Console.WriteLine("SingelThread_HashOnDisk");
-            var dict = new Dictionary<int, Person>("SingelThread_HashCompositeOnDisk", 100000);
+            var dict = new MMFDictionary<int, Person>("SingelThread_HashCompositeOnDisk", 100000);
 
             Stopwatch sw = Stopwatch.StartNew();
             for (int i = 0; i < MaxCount; i++)
